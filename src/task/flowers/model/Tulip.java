@@ -9,33 +9,8 @@ public class Tulip extends Flower {
         this.length = 25;
     }
 
-    /*@Override
-    void setCost(int cost) {
-        this.cost = 20;
-    }
-
     @Override
-    void setName(String name) {
-        this.name = "Tulip";
-    }
-
-    @Override
-    void setFreshness(int freshness) {
-        this.freshness = freshness;
-    }
-
-    @Override
-    void setLength(int length) {
-        this. length = 25;
-    }*/
-
-    @Override
-    public String toString() {
-        return "Tulip{" +
-                "cost=" + cost +
-                ", name='" + name + '\'' +
-                ", freshness=" + freshness +
-                ", length=" + length +
-                '}';
+    String growsIn() {
+        return "Grows in Holland";
     }
 }

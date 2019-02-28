@@ -4,14 +4,23 @@ import java.util.ArrayList;
 
 public class Builder {
 
-    public Bouquet assembleBuquet(ArrayList<Flower> flowers, ArrayList<Accessory> accessories){
-        Bouquet bouquet = new Bouquet();
+    ArrayList<Flower> flowers = new ArrayList<>();
+    ArrayList<Accessory> accessories = new ArrayList<>();
 
-        bouquet.addFlowers(flowers);
-        bouquet.addAccessory(accessories);
-
-
-        return bouquet;
+    public Builder buildFlowers(ArrayList<Flower> flowers){
+        this.flowers.addAll(flowers);
+        return this;
     }
 
+    public Builder buildAccessories(ArrayList<Accessory> accessories){
+        this.accessories.addAll(accessories);
+        return this;
+    }
+
+    public Bouquet build(){
+        Bouquet bouquet = new Bouquet();
+        bouquet.addFlowers(flowers);
+        bouquet.addAccessory(accessories);
+        return bouquet;
+    }
 }

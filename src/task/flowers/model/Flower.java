@@ -3,29 +3,30 @@ package task.flowers.model;
 
 public abstract class Flower {
 
-    protected int cost;
     protected String name;
     protected int freshness;
     protected int length;
+    protected int cost;
 
-    //abstract void setCost(int cost);
-    int getCost(){
-        return cost;
-    }
+    abstract String growsIn();
 
-    //abstract void setName(String name);
-    String getName(){
-        return name;
-    }
-
-    //abstract void setFreshness(int freshness);
     int getFreshness(){
         return freshness;
     }
 
-    //abstract void setLength(int length);
     int getLength(){
         return length;
     }
 
+    int getCost(){
+        return cost;
+    }
+
+    @Override
+    public String toString() {
+        return name +
+                ", freshness=" + freshness +
+                ", length=" + length +
+                ", cost=" + cost +", "+ growsIn();
+    }
 }

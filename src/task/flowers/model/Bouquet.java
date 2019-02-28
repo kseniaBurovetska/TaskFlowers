@@ -1,49 +1,62 @@
 package task.flowers.model;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class Bouquet {
 
-    ArrayList<Flower> flowers = new ArrayList<>();
-    ArrayList<Accessory> accessories = new ArrayList<>();
+    private List<Flower> flowers = new ArrayList<>();
+    private List<Accessory> accessories = new ArrayList<>();
 
-    public Bouquet(){
+    public Bouquet() {
 
     }
 
-    public Bouquet(ArrayList<Flower> flowers){
+    public Bouquet(List<Flower> flowers) {
         this(flowers, null);
     }
 
-    public Bouquet(ArrayList<Flower> flowers, ArrayList<Accessory> accessories){
+    public Bouquet(List<Flower> flowers, List<Accessory> accessories) {
         this.flowers = flowers;
         this.accessories = accessories;
     }
 
-
-    public void addFlowers(ArrayList<Flower> flowerArrayList){
+    public void addFlowers(List<Flower> flowerArrayList) {
         flowers.addAll(flowerArrayList);
     }
 
-    public void addAccessory(ArrayList<Accessory> accessoryArrayList){
+    public void addAccessory(List<Accessory> accessoryArrayList) {
         accessories.addAll(accessoryArrayList);
     }
 
-    public int countCost(){
+    public List<Flower> getFlowers() {
+        return flowers;
+    }
+
+    public List<Accessory> getAccessories() {
+        return accessories;
+    }
+
+    public int countCost() {
         int cost = flowers.stream()
                 .map(f -> f.getCost())
-                .reduce(0, (sum, f) -> sum+f);
+                .reduce(0, (sum, f) -> sum + f)
+                + accessories.stream()
+                .map(f -> f.getCost())
+                .reduce(0, (sum, f) -> sum + f);
 
         return cost;
     }
 
-    public List<Flower> filter(){
-        return flowers.stream()
+    public Bouquet sortByFreshness() {
+        flowers.sort(Comparator.comparingInt(Flower::getFreshness).reversed());
+        /*flowers = flowers.stream()
                 .sorted(Comparator.comparingInt(Flower::getFreshness).reversed())
-                .collect(Collectors.toList());
+                .collect(Collectors.toList());*/
+        return this;
     }
 
 }

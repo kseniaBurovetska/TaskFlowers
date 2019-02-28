@@ -1,6 +1,7 @@
 package task.flowers.controller;
 
 import task.flowers.model.*;
+import task.flowers.view.Constants;
 import task.flowers.view.View;
 
 import java.util.ArrayList;
@@ -8,9 +9,11 @@ import java.util.ArrayList;
 public class Controller {
 
     private View view;
+    private Builder builder;
 
-    public Controller(View view){
+    public Controller(View view, Builder builder){
         this.view = view;
+        this.builder = builder;
     }
 
     public void process(){
@@ -22,25 +25,24 @@ public class Controller {
     //TEST
     public void testVoid(){
         ArrayList<Flower> flowers = new ArrayList<>();
+        ArrayList<Accessory> accessories = new ArrayList<>();
 
         flowers.add(new Rose(80));
-        flowers.add(new Rose(60));
-        flowers.add(new Rose(75));
         flowers.add(new Tulip(70));
-        flowers.add(new Tulip(81));
-        flowers.add(new Tulip(93));
-        flowers.add(new Narciss(60));
-        flowers.add(new Narciss(90));
-        flowers.add(new Narciss(82));
+        flowers.add(new Narcissus(82));
 
-        flowers.stream()
-                .forEach(System.out::println);
+        accessories.add(new Accessory("Ribbon", 10));
+        accessories.add(new Accessory("Paper Wrapper", 30));
 
-        Bouquet bouquet = new Bouquet(flowers);
-        System.out.println(bouquet.countCost());
+        Bouquet bouquet = builder.buildFlowers(flowers)
+                .buildAccessories(accessories)
+                .build();
 
-
-        view.printArray(bouquet.filter());
+        view.printMessage(Constants.FLOWERS);
+        view.printArray(bouquet.sortByFreshness().getFlowers());
+        view.printMessage(Constants.ACCESSORIES);
+        view.printArray(bouquet.getAccessories());
+        view.printMessage(Constants.TOTAL_COST, String.valueOf(bouquet.countCost()));
     }
 
 }
