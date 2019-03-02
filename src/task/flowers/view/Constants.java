@@ -1,7 +1,7 @@
 package task.flowers.view;
 
 public interface Constants {
-    String FLOWERS = "=================Flowers=================";
-    String ACCESSORIES = "===============Accessories===============";
-    String TOTAL_COST = "TOTAL COST:";
+    String FLOWERS = "output.flowers";
+    String ACCESSORIES = "output.accessories";
+    String TOTAL_COST = "output.total.cost";
 }

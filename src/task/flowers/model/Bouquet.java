@@ -53,9 +53,7 @@ public class Bouquet {
 
     public Bouquet sortByFreshness() {
         flowers.sort(Comparator.comparingInt(Flower::getFreshness).reversed());
-        /*flowers = flowers.stream()
-                .sorted(Comparator.comparingInt(Flower::getFreshness).reversed())
-                .collect(Collectors.toList());*/
+
         return this;
     }
 

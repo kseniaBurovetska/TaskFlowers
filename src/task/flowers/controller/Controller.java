@@ -38,11 +38,12 @@ public class Controller {
                 .buildAccessories(accessories)
                 .build();
 
-        view.printMessage(Constants.FLOWERS);
+        view.printOutput(Constants.FLOWERS);
         view.printArray(bouquet.sortByFreshness().getFlowers());
-        view.printMessage(Constants.ACCESSORIES);
+        view.printOutput(Constants.ACCESSORIES);
         view.printArray(bouquet.getAccessories());
-        view.printMessage(Constants.TOTAL_COST, String.valueOf(bouquet.countCost()));
+        view.printOutput(Constants.TOTAL_COST);
+        view.printMessage(String.valueOf(bouquet.countCost()));
     }
 
 }
