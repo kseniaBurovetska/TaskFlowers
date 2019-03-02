@@ -2,24 +2,13 @@ package task.flowers.model;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 public class Bouquet {
 
     private ArrayList<Flower> flowers = new ArrayList<>();
     private ArrayList<Accessory> accessories = new ArrayList<>();
-
-    public Bouquet() {
-
-    }
-
-    public Bouquet(ArrayList<Flower> flowers) {
-        this(flowers, null);
-    }
-
-    public Bouquet(ArrayList<Flower> flowers, ArrayList<Accessory> accessories) {
-        this.flowers = flowers;
-        this.accessories = accessories;
-    }
 
     public void addFlowers(ArrayList<Flower> flowerArrayList) {
         flowers.addAll(flowerArrayList);
@@ -52,6 +41,21 @@ public class Bouquet {
         flowers.sort(Comparator.comparingInt(Flower::getFreshness).reversed());
 
         return this;
+    }
+
+    public ArrayList<Flower> getByStemLength(int from, int to) {
+        return flowers.stream()
+                .filter(f -> (f.getStemLength() >= from && f.getStemLength() <= to))
+                .collect(Collectors.toCollection(ArrayList::new));
+
+    }
+
+    public Flower getFlowerByStemLength(int from, int to) {
+        return flowers.stream()
+                .filter(f -> (f.getStemLength() >= from && f.getStemLength() <= to))
+                .findFirst()
+                .get();
+
     }
 
 }
