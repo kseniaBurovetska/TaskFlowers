@@ -2,15 +2,13 @@ package task.flowers.model;
 
 public class Narcissus extends Flower {
 
-    public Narcissus(int freshness){
-        this.freshness = freshness;
-        this.name = "Narcissus";
-        this.cost = 30;
-        this.length = 15;
-    }
+    private String narcissusField;
 
-    @Override
-    String growsIn() {
-        return "Grows in North America";
+    public Narcissus(int freshness, int stemLength, String narcissusField){
+        this.name = "Narcissus";
+        this.freshness = freshness;
+        this.stemLength = stemLength;
+        this.cost = 30;
+        this.narcissusField = narcissusField;
     }
 }

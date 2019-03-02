@@ -13,7 +13,7 @@ public class View {
                     //new Locale("ru"));
 
     public void printOutput(String message){
-        System.out.println(bundle.getString(message));
+        System.out.println("\n"+bundle.getString(message));
     }
 
     public void printMessage(String... messages){

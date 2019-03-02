@@ -5,17 +5,15 @@ public abstract class Flower {
 
     protected String name;
     protected int freshness;
-    protected int length;
+    protected int stemLength;
     protected int cost;
-
-    abstract String growsIn();
 
     int getFreshness(){
         return freshness;
     }
 
-    int getLength(){
-        return length;
+    int getStemLength(){
+        return stemLength;
     }
 
     int getCost(){
@@ -26,7 +24,7 @@ public abstract class Flower {
     public String toString() {
         return name +
                 ", freshness=" + freshness +
-                ", length=" + length +
-                ", cost=" + cost +", "+ growsIn();
+                ", stemLength=" + stemLength +
+                ", cost=" + cost;
     }
 }

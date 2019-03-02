@@ -1,5 +1,6 @@
 package task.flowers.controller;
 
+import task.flowers.db.DBHandler;
 import task.flowers.model.*;
 import task.flowers.view.Constants;
 import task.flowers.view.View;
@@ -18,12 +19,25 @@ public class Controller {
 
     public void process(){
 
-        testVoid();
+        //testVoid();
+        DBHandler dbHandler = new DBHandler();
+        Bouquet bouquet = builder
+                .buildFlowers(dbHandler.getFlowers())
+                .buildAccessories(dbHandler.getAccessories())
+                .build();
+
+        view.printOutput(Constants.FLOWERS);
+        view.printArray(bouquet.sortByFreshness().getFlowers());
+        //view.printArray(bouquet.getFlowers());
+        view.printOutput(Constants.ACCESSORIES);
+        view.printArray(bouquet.getAccessories());
+        view.printOutput(Constants.TOTAL_COST);
+        view.printMessage(String.valueOf(bouquet.countCost()));
 
     }
 
     //TEST
-    public void testVoid(){
+    /*public void testVoid(){
         ArrayList<Flower> flowers = new ArrayList<>();
         ArrayList<Accessory> accessories = new ArrayList<>();
 
@@ -44,6 +58,6 @@ public class Controller {
         view.printArray(bouquet.getAccessories());
         view.printOutput(Constants.TOTAL_COST);
         view.printMessage(String.valueOf(bouquet.countCost()));
-    }
+    }*/
 
 }

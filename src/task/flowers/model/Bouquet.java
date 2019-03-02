@@ -1,42 +1,39 @@
 package task.flowers.model;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Comparator;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class Bouquet {
 
-    private List<Flower> flowers = new ArrayList<>();
-    private List<Accessory> accessories = new ArrayList<>();
+    private ArrayList<Flower> flowers = new ArrayList<>();
+    private ArrayList<Accessory> accessories = new ArrayList<>();
 
     public Bouquet() {
 
     }
 
-    public Bouquet(List<Flower> flowers) {
+    public Bouquet(ArrayList<Flower> flowers) {
         this(flowers, null);
     }
 
-    public Bouquet(List<Flower> flowers, List<Accessory> accessories) {
+    public Bouquet(ArrayList<Flower> flowers, ArrayList<Accessory> accessories) {
         this.flowers = flowers;
         this.accessories = accessories;
     }
 
-    public void addFlowers(List<Flower> flowerArrayList) {
+    public void addFlowers(ArrayList<Flower> flowerArrayList) {
         flowers.addAll(flowerArrayList);
     }
 
-    public void addAccessory(List<Accessory> accessoryArrayList) {
+    public void addAccessory(ArrayList<Accessory> accessoryArrayList) {
         accessories.addAll(accessoryArrayList);
     }
 
-    public List<Flower> getFlowers() {
+    public ArrayList<Flower> getFlowers() {
         return flowers;
     }
 
-    public List<Accessory> getAccessories() {
+    public ArrayList<Accessory> getAccessories() {
         return accessories;
     }
 

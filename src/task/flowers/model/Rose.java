@@ -2,15 +2,13 @@ package task.flowers.model;
 
 public class Rose extends Flower {
 
-    public Rose(int freshness){
-        this.freshness = freshness;
-        this.name = "Rose";
-        this.cost = 40;
-        this.length = 30;
-    }
+    private int roseField;
 
-    @Override
-    String growsIn() {
-        return "Grows in England";
+    public Rose(int freshness, int stemLength, int roseField){
+        this.name = "Rose";
+        this.freshness = freshness;
+        this.stemLength = stemLength;
+        this.cost = 40;
+        this.roseField = roseField;
     }
 }
