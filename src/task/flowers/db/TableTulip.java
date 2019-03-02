@@ -1,9 +1,12 @@
 package task.flowers.db;
 
 import task.flowers.model.Tulip;
-
 import java.util.ArrayList;
 
+/**
+ * @author Kseniia Burovetska
+ * Enum imitating table of tulips
+ */
 public enum TableTulip {
     T1(91, 23, 0.5),
     T2(70, 21, 0.4),
@@ -13,12 +16,17 @@ public enum TableTulip {
     int stemLength;
     double tulipField;
 
+
     TableTulip(int freshness, int stemLength, double tulipField) {
         this.freshness = freshness;
         this.stemLength = stemLength;
         this.tulipField = tulipField;
     }
 
+    /**
+     * Parses enum values.
+     * @return arrayList of Tulip objects
+     */
     static ArrayList<Tulip> getTulips() {
         ArrayList<Tulip> tulips = new ArrayList<>();
 

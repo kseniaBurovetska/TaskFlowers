@@ -1,9 +1,12 @@
 package task.flowers.db;
 
 import task.flowers.model.Accessory;
-
 import java.util.ArrayList;
 
+/**
+ * @author Kseniia Burovetska
+ * Enum imitating table of accessories
+ */
 public enum TableAccessories {
     A1("Paper Wrapper", 30),
     A2("Red ribbons", 10),
@@ -18,6 +21,10 @@ public enum TableAccessories {
         this.cost = cost;
     }
 
+    /**
+     * Parses enum values to arrayList
+     * @return arrayList of accessories
+     */
     static ArrayList<Accessory> parseAccessoriesDB() {
         ArrayList<Accessory> accessories = new ArrayList<>();
 

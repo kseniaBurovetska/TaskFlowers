@@ -1,9 +1,12 @@
 package task.flowers.db;
 
 import task.flowers.model.Narcissus;
-
 import java.util.ArrayList;
 
+/**
+ * @author Kseniia Burovetska
+ * Enum imitating table of Narcissus
+ */
 public enum TableNarcissus {
     N1(73, 18, "a"),
     N2(52, 20, "b"),
@@ -19,6 +22,10 @@ public enum TableNarcissus {
         this.narcissusField = narcissusField;
     }
 
+    /**
+     * Parse enum values.
+     * @return arrayList of Narcissus object
+     */
     static ArrayList<Narcissus> getNarcisses() {
         ArrayList<Narcissus> narcisses = new ArrayList<>();
 
