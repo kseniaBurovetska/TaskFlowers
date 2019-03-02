@@ -5,4 +5,6 @@ public interface Constants {
     String ACCESSORIES = "output.accessories";
     String TOTAL_COST = "output.total.cost";
     String STEM_LENGTH = "output.stem.range";
+    int LOW = 19;
+    int TOP = 22;
 }

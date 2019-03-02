@@ -49,7 +49,8 @@ public class Controller {
         view.printMessage(String.valueOf(bouquet.countCost()));
 
         view.printOutput(Constants.STEM_LENGTH);
-        view.printArray(bouquet.getByStemLength(19, 22));
+        view.printMessage(String.valueOf(Constants.LOW), ";", String.valueOf(Constants.TOP));
+        view.printArray(bouquet.getByStemLength(Constants.LOW, Constants.TOP)); // 19, 22
     }
 
 }
