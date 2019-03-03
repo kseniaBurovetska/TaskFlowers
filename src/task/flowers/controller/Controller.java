@@ -12,13 +12,16 @@ import task.flowers.view.View;
 public class Controller {
 
     private View view;
+    private Builder builder;
 
     /**
      * Controller constructor
      * @param view
+     * @param builder
      */
-    public Controller(View view) {
+    public Controller(View view, Builder builder) {
         this.view = view;
+        this.builder = builder;
     }
 
     /**
@@ -26,7 +29,12 @@ public class Controller {
      * Display results.
      */
     public void process() {
-        Bouquet bouquet = new Bouquet();
+        DBHandler dbHandler = new DBHandler();
+
+        Bouquet bouquet = builder
+                .buildFlowers(dbHandler.getFlowers())
+                .buildAccessories(dbHandler.getAccessories())
+                .build();
 
         view.printOutput(Constants.FLOWERS);
         view.printArray(bouquet.getFlowers());
