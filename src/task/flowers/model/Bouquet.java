@@ -6,27 +6,21 @@ import java.util.stream.Collectors;
 
 /**
  * @author Kseniia Burovetska
- * Bouquet class
+ * Bouquet IMMUTABLE class
  */
 public class Bouquet {
 
-    private ArrayList<Flower> flowers = new ArrayList<>();
-    private ArrayList<Accessory> accessories = new ArrayList<>();
+    private final ArrayList<Flower> flowers;
+    private final ArrayList<Accessory> accessories;
 
     /**
-     * Flowers setter
-     * @param flowerArrayList
+     * Constructor if immutable class
+     * @param flowers arrayList of Flower objects
+     * @param accessories arrayList of Accessory objects
      */
-    public void addFlowers(ArrayList<Flower> flowerArrayList) {
-        flowers.addAll(flowerArrayList);
-    }
-
-    /**
-     * Accessories setter
-     * @param accessoryArrayList
-     */
-    public void addAccessory(ArrayList<Accessory> accessoryArrayList) {
-        accessories.addAll(accessoryArrayList);
+    public Bouquet(ArrayList<Flower> flowers, ArrayList<Accessory> accessories){
+        this.flowers = flowers;
+        this.accessories = accessories;
     }
 
     /**
@@ -34,7 +28,7 @@ public class Bouquet {
      * @return arrayList of flowers
      */
     public ArrayList<Flower> getFlowers() {
-        return flowers;
+        return new ArrayList<>(flowers);
     }
 
     /**
@@ -42,7 +36,7 @@ public class Bouquet {
      * @return arrayList of accessories
      */
     public ArrayList<Accessory> getAccessories() {
-        return accessories;
+        return new ArrayList<>(accessories);
     }
 
     /**

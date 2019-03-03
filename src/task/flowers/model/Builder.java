@@ -51,9 +51,8 @@ public class Builder {
      * @return
      */
     public Bouquet build() {
-        Bouquet bouquet = new Bouquet();
-        bouquet.addFlowers(flowers);
-        bouquet.addAccessory(accessories);
+        Bouquet bouquet = new Bouquet(flowers, accessories);
+
         return bouquet;
     }
 }
