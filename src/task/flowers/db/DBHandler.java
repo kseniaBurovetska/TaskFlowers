@@ -14,7 +14,7 @@ public class DBHandler {
      * Parses accessories from TableAccessories
      * @return arrayList of Accessory objects
      */
-    public ArrayList<Accessory> getAccessories(){
+    public static ArrayList<Accessory> getAccessories(){
         return TableAccessories.parseAccessoriesDB();
     }
 
@@ -22,7 +22,7 @@ public class DBHandler {
      * Parses all 3 kind of flowers
      * @return arrayList of Flower objects
      */
-    public ArrayList<Flower> getFlowers(){
+    public static ArrayList<Flower> getFlowers(){
         ArrayList<Flower> flowers = new ArrayList<>();
 
         flowers.addAll(TableRose.getRoses());

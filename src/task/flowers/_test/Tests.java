@@ -3,49 +3,50 @@ package task.flowers._test;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import task.flowers.db.DBHandler;
 import task.flowers.model.*;
 
 import java.util.ArrayList;
 
 public class Tests {
 
-    static Builder builder;
-    static ArrayList<Flower> flowers;
-    static ArrayList<Accessory> accessories;
+    static DBHandler dbHandler;
     static Bouquet bouquet;
 
     @BeforeClass
     public static void before(){
-        builder = new Builder();
-        flowers = new ArrayList<>();
-        accessories = new ArrayList<>();
+        dbHandler = null;
+        bouquet = new Bouquet();
 
-        flowers.add(new Rose(100, 20, 3));
-        accessories.add(new Accessory("Accessory", 10));
+    }
 
-        bouquet = builder
-                .buildFlowers(flowers)
-                .buildAccessories(accessories)
-                .build();
+    /*@Test(expected = NullPointerException.class)
+    public void testBouquetNullPointer(){
+        Bouquet.dbAccessories = null;
+        Bouquet.dbFlowers = null;
+        Bouquet bouquet = new Bouquet();
     }
 
     @Test(expected = NullPointerException.class)
-    public void testNullFlowers(){
-        builder.buildFlowers(null)
-                .buildAccessories(accessories)
-                .build();
+    public void testBouquetNullFlowers(){
+        Bouquet.dbFlowers = null;
+        Bouquet bouquet = new Bouquet();
     }
 
     @Test(expected = NullPointerException.class)
-    public void testNullAccessories(){
-        builder.buildFlowers(flowers)
-                .buildAccessories(null)
-                .build();
+    public void testBouquetNullAccessories(){
+        Bouquet.dbAccessories = null;
+        Bouquet bouquet = new Bouquet();
     }
 
     @Test
+    public void testBouquet(){
+        Bouquet bouquet = new Bouquet();
+    }*/
+
+    @Test
     public void costTestTrue(){
-        int expectedCost = 50;
+        int expectedCost = 350;
         Assert.assertTrue(expectedCost == bouquet.countCost());
     }
 

@@ -1,48 +1,50 @@
 package task.flowers.model;
 
+import task.flowers.db.DBHandler;
+
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 /**
  * @author Kseniia Burovetska
- * Bouquet class
+ * Bouquet IMMUTABLE class
  */
 public class Bouquet {
 
-    private ArrayList<Flower> flowers = new ArrayList<>();
-    private ArrayList<Accessory> accessories = new ArrayList<>();
+    private final ArrayList<Flower> flowers;
+    private final ArrayList<Accessory> accessories;
 
     /**
-     * Flowers setter
-     * @param flowerArrayList
+     * Bouquet constructor. Parses flowers and accessories from database.
      */
-    public void addFlowers(ArrayList<Flower> flowerArrayList) {
-        flowers.addAll(flowerArrayList);
-    }
+    public Bouquet(){
+        ArrayList<Flower> dbFlowers = DBHandler.getFlowers();
+        ArrayList<Accessory> dbAccessories = DBHandler.getAccessories();
 
-    /**
-     * Accessories setter
-     * @param accessoryArrayList
-     */
-    public void addAccessory(ArrayList<Accessory> accessoryArrayList) {
-        accessories.addAll(accessoryArrayList);
+        if (Objects.nonNull(dbFlowers) && Objects.nonNull(dbAccessories)) {
+            flowers = new ArrayList<>(dbFlowers);
+            accessories = new ArrayList<>(dbAccessories);
+        } else {
+            throw new NullPointerException("Empty database");
+        }
     }
 
     /**
      * Flowers getter
-     * @return arrayList of flowers
+     * @return copy arrayList of flowers
      */
     public ArrayList<Flower> getFlowers() {
-        return flowers;
+        return new ArrayList<>(flowers);
     }
 
     /**
      * Accessories getter
-     * @return arrayList of accessories
+     * @return copy arrayList of accessories
      */
     public ArrayList<Accessory> getAccessories() {
-        return accessories;
+        return new ArrayList<>(accessories);
     }
 
     /**
@@ -71,6 +73,7 @@ public class Bouquet {
 
     /**
      * Returns array of flowers which stem is in a given range
+     * Doesn't change initial array.
      * @param from low range bound
      * @param to top range bound
      * @return appropriate flowers array
