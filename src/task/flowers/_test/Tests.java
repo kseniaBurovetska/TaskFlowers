@@ -7,6 +7,9 @@ import task.flowers.model.*;
 
 import java.util.ArrayList;
 
+/**
+ * Test class
+ */
 public class Tests {
 
     static Builder builder;
