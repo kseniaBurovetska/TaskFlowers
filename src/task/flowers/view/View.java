@@ -11,8 +11,8 @@ import java.util.ResourceBundle;
 public class View {
 
     /** Bundle declaration */
-    static String BUNDLE_NAME = "messages";
-    public static final ResourceBundle bundle =
+    private static String BUNDLE_NAME = "messages";
+    private static final ResourceBundle bundle =
             ResourceBundle.getBundle(BUNDLE_NAME,
                     new Locale("en"));
                     //new Locale("ru"));
@@ -47,8 +47,7 @@ public class View {
         if (list.isEmpty()) {
             System.out.println("None");
         } else {
-            list.stream()
-                    .forEach(System.out::println);
+            list.forEach(System.out::println);
 
         }
     }

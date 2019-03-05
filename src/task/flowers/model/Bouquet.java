@@ -1,14 +1,18 @@
 package task.flowers.model;
 
+import task.flowers.model.entity.Accessory;
+import task.flowers.model.entity.Flower;
+
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
  * @author Kseniia Burovetska
  * Bouquet IMMUTABLE class
  */
-public class Bouquet {
+public final class Bouquet {
 
     private final ArrayList<Flower> flowers;
     private final ArrayList<Accessory> accessories;
@@ -19,8 +23,8 @@ public class Bouquet {
      * @param accessories arrayList of Accessory objects
      */
     public Bouquet(ArrayList<Flower> flowers, ArrayList<Accessory> accessories){
-        this.flowers = flowers;
-        this.accessories = accessories;
+        this.flowers = Optional.ofNullable(flowers).orElseThrow(IllegalArgumentException::new);
+        this.accessories = Optional.ofNullable(accessories).orElseThrow(IllegalArgumentException::new);
     }
 
     /**
@@ -45,10 +49,10 @@ public class Bouquet {
      */
     public int countCost() {
         return flowers.stream()
-                .map(f -> f.getCost())
+                .map(Flower::getCost)
                 .reduce(0, (sum, f) -> sum + f)
                 + accessories.stream()
-                .map(f -> f.getCost())
+                .map(Accessory::getCost)
                 .reduce(0, (sum, f) -> sum + f);
     }
 

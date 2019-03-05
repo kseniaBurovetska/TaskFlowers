@@ -1,4 +1,4 @@
-package task.flowers.model;
+package task.flowers.model.entity;
 
 public class Tulip extends Flower {
 

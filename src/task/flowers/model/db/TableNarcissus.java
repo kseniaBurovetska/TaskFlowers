@@ -1,6 +1,6 @@
-package task.flowers.db;
+package task.flowers.model.db;
 
-import task.flowers.model.Narcissus;
+import task.flowers.model.entity.Narcissus;
 import java.util.ArrayList;
 
 /**

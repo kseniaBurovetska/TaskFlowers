@@ -1,6 +1,6 @@
 package task.flowers.controller;
 
-import task.flowers.db.DBHandler;
+import task.flowers.model.db.DBHandler;
 import task.flowers.model.*;
 import task.flowers.view.Constants;
 import task.flowers.view.View;
@@ -12,16 +12,16 @@ import task.flowers.view.View;
 public class Controller {
 
     private View view;
-    private Builder builder;
+    private DBHandler dbHandler;
 
     /**
      * Controller constructor
      * @param view
-     * @param builder
+     * @param dbHandler
      */
-    public Controller(View view, Builder builder) {
+    public Controller(View view, DBHandler dbHandler) {
         this.view = view;
-        this.builder = builder;
+        this.dbHandler = dbHandler;
     }
 
     /**
@@ -29,12 +29,8 @@ public class Controller {
      * Display results.
      */
     public void process() {
-        DBHandler dbHandler = new DBHandler();
 
-        Bouquet bouquet = builder
-                .buildFlowers(dbHandler.getFlowers())
-                .buildAccessories(dbHandler.getAccessories())
-                .build();
+       Bouquet bouquet = new Bouquet(dbHandler.getFlowers(), dbHandler.getAccessories());
 
         view.printOutput(Constants.FLOWERS);
         view.printArray(bouquet.getFlowers());

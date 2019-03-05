@@ -1,4 +1,4 @@
-package task.flowers.model;
+package task.flowers.model.entity;
 
 /**
  * @author Kseniia Burovetska
@@ -15,7 +15,7 @@ public abstract class Flower {
      * Freshness getter
      * @return freshness
      */
-    int getFreshness(){
+    public int getFreshness(){
         return freshness;
     }
 
@@ -23,7 +23,7 @@ public abstract class Flower {
      * Stem length getter
      * @return stem length
      */
-    int getStemLength(){
+    public int getStemLength(){
         return stemLength;
     }
 
@@ -31,7 +31,7 @@ public abstract class Flower {
      * Cost getter
      * @return cost
      */
-    int getCost(){
+    public int getCost(){
         return cost;
     }
 }
