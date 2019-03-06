@@ -22,9 +22,13 @@ public final class Bouquet {
      * @param flowers arrayList of Flower objects
      * @param accessories arrayList of Accessory objects
      */
-    public Bouquet(ArrayList<Flower> flowers, ArrayList<Accessory> accessories){
-        this.flowers = Optional.ofNullable(flowers).orElseThrow(IllegalArgumentException::new);
-        this.accessories = Optional.ofNullable(accessories).orElseThrow(IllegalArgumentException::new);
+    public Bouquet(ArrayList<Flower> flowers, ArrayList<Accessory> accessories)
+            throws NullPointerException{
+        //this.flowers = new ArrayList<>(Optional.ofNullable(flowers).orElseThrow(NullPointerException::new));
+        //this.accessories = new ArrayList<>(Optional.ofNullable(accessories).orElseThrow(NullPointerException::new));
+
+        this.flowers = new ArrayList<>(flowers);
+        this.accessories = new ArrayList<>(accessories);
     }
 
     /**

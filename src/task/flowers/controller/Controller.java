@@ -16,6 +16,7 @@ public class Controller {
 
     /**
      * Controller constructor
+     *
      * @param view
      * @param dbHandler
      */
@@ -29,8 +30,14 @@ public class Controller {
      * Display results.
      */
     public void process() {
+        Bouquet bouquet;
 
-       Bouquet bouquet = new Bouquet(dbHandler.getFlowers(), dbHandler.getAccessories());
+        try {
+            bouquet = new Bouquet(null, dbHandler.getAccessories());
+        } catch (NullPointerException e) {
+            view.printError(Constants.ERROR_BOUQUET);
+            return;
+        }
 
         view.printOutput(Constants.FLOWERS);
         view.printArray(bouquet.getFlowers());

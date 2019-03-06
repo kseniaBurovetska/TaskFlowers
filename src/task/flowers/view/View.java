@@ -16,6 +16,7 @@ public class View {
             ResourceBundle.getBundle(BUNDLE_NAME,
                     new Locale("en"));
                     //new Locale("ru"));
+                    //new Locale("ua"));
 
     /**
      * Prints constant messages.
@@ -23,6 +24,10 @@ public class View {
      */
     public void printOutput(String message) {
         System.out.println("\n" + bundle.getString(message));
+    }
+
+    public void printError(String errorMessage){
+        System.err.println(bundle.getString(errorMessage));
     }
 
     /**

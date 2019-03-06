@@ -28,12 +28,12 @@ public class Tests {
         accessories.add(new Accessory("Accessory", 10));
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testNullFlowers(){
         bouquet = new Bouquet(null, accessories);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = NullPointerException.class)
     public void testNullAccessories(){
         bouquet = new Bouquet(flowers, null);
     }
