@@ -23,12 +23,12 @@ public class Narcissus extends Flower {
         this.narcissusField = narcissusField;
     }
 
+    /**
+     * Getter for a local field
+     * @return String flower field
+     */
     @Override
-    public String toString() {
-        return name +
-                ", freshness=" + freshness +
-                ", stemLength=" + stemLength +
-                ", cost=" + cost +
-                ", narcissusField=" + narcissusField;
+    public String getLocalField() {
+        return narcissusField;
     }
 }

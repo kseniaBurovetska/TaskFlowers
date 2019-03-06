@@ -19,12 +19,12 @@ public class Rose extends Flower {
         this.roseField = roseField;
     }
 
+    /**
+     * Getter for a local field
+     * @return Integer flower field
+     */
     @Override
-    public String toString() {
-        return name +
-                ", freshness=" + freshness +
-                ", stemLength=" + stemLength +
-                ", cost=" + cost +
-                ", roseField=" + roseField;
+    public Integer getLocalField() {
+        return roseField;
     }
 }

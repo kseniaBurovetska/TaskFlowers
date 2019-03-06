@@ -19,12 +19,12 @@ public class Tulip extends Flower {
         this.tulipField = tulipField;
     }
 
+    /**
+     * Getter for a local field
+     * @return Double flower field
+     */
     @Override
-    public String toString() {
-        return name +
-                ", freshness=" + freshness +
-                ", stemLength=" + stemLength +
-                ", cost=" + cost +
-                ", tulipField=" + tulipField;
+    public Double getLocalField() {
+        return tulipField;
     }
 }

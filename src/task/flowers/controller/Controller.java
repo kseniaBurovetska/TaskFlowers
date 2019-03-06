@@ -33,7 +33,7 @@ public class Controller {
         Bouquet bouquet;
 
         try {
-            bouquet = new Bouquet(null, dbHandler.getAccessories());
+            bouquet = new Bouquet(dbHandler.getFlowers(), dbHandler.getAccessories());
         } catch (NullPointerException e) {
             view.printError(Constants.ERROR_BOUQUET);
             return;
