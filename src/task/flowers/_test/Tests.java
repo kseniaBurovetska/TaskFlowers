@@ -28,7 +28,7 @@ public class Tests {
         accessories.add(new Accessory("Accessory", 10));
     }
 
-    @Test(expected = NullPointerException.class)
+    /*@Test(expected = NullPointerException.class)
     public void testNullFlowers(){
         bouquet = new Bouquet(null, accessories);
     }
@@ -36,19 +36,19 @@ public class Tests {
     @Test(expected = NullPointerException.class)
     public void testNullAccessories(){
         bouquet = new Bouquet(flowers, null);
-    }
+    }*/
 
     @Test
     public void costTestTrue(){
-        int expectedCost = 50;
-        bouquet = new Bouquet(flowers, accessories);
+        int expectedCost = 350;
+        bouquet = new Bouquet();
         Assert.assertTrue(expectedCost == bouquet.countCost());
     }
 
     @Test
     public void costTestFalse(){
         int expectedCost = 60;
-        bouquet = new Bouquet(flowers, accessories);
+        bouquet = new Bouquet();
         Assert.assertFalse(expectedCost == bouquet.countCost());
     }
 }

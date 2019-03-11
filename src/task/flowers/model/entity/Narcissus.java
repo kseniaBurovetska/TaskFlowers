@@ -11,9 +11,9 @@ public class Narcissus extends Flower {
 
     /**
      * Narcissus constructor
-     * @param freshness
-     * @param stemLength
-     * @param narcissusField
+     * @param freshness flower freshness
+     * @param stemLength flower stem length
+     * @param narcissusField artificial local field
      */
     public Narcissus(int freshness, int stemLength, String narcissusField) {
         this.name = "Narcissus";

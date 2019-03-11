@@ -7,9 +7,9 @@ public class Rose extends Flower {
 
     /**
      * Rose constructor
-     * @param freshness
-     * @param stemLength
-     * @param roseField
+     * @param freshness flower freshness
+     * @param stemLength flower stem length
+     * @param roseField artificial local field
      */
     public Rose(int freshness, int stemLength, int roseField) {
         this.name = "Rose";

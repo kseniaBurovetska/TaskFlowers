@@ -1,5 +1,6 @@
 package task.flowers.model;
 
+import task.flowers.model.db.DBHandler;
 import task.flowers.model.entity.Accessory;
 import task.flowers.model.entity.Flower;
 
@@ -16,19 +17,16 @@ public final class Bouquet {
 
     private final ArrayList<Flower> flowers;
     private final ArrayList<Accessory> accessories;
+    private DBHandler dbHandler = new DBHandler();
 
     /**
      * Constructor if immutable class
-     * @param flowers arrayList of Flower objects
-     * @param accessories arrayList of Accessory objects
      */
-    public Bouquet(ArrayList<Flower> flowers, ArrayList<Accessory> accessories)
+    public Bouquet()
             throws NullPointerException{
-        //this.flowers = new ArrayList<>(Optional.ofNullable(flowers).orElseThrow(NullPointerException::new));
-        //this.accessories = new ArrayList<>(Optional.ofNullable(accessories).orElseThrow(NullPointerException::new));
 
-        this.flowers = new ArrayList<>(flowers);
-        this.accessories = new ArrayList<>(accessories);
+        this.flowers = new ArrayList<>(dbHandler.getFlowers());
+        this.accessories = new ArrayList<>(dbHandler.getAccessories());
     }
 
     /**

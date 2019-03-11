@@ -7,9 +7,9 @@ public class Tulip extends Flower {
 
     /**
      * Tulip constructor
-     * @param freshness
-     * @param stemLength
-     * @param tulipField
+     * @param freshness flower freshness
+     * @param stemLength flower stem length
+     * @param tulipField artificial local field
      */
     public Tulip(int freshness, int stemLength, double tulipField) {
         this.name = "Tulip";

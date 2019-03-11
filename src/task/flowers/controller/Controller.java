@@ -12,17 +12,14 @@ import task.flowers.view.View;
 public class Controller {
 
     private View view;
-    private DBHandler dbHandler;
 
     /**
      * Controller constructor
      *
      * @param view
-     * @param dbHandler
      */
-    public Controller(View view, DBHandler dbHandler) {
+    public Controller(View view) {
         this.view = view;
-        this.dbHandler = dbHandler;
     }
 
     /**
@@ -33,7 +30,7 @@ public class Controller {
         Bouquet bouquet;
 
         try {
-            bouquet = new Bouquet(dbHandler.getFlowers(), dbHandler.getAccessories());
+            bouquet = new Bouquet();
         } catch (NullPointerException e) {
             view.printError(Constants.ERROR_BOUQUET);
             return;
@@ -52,7 +49,7 @@ public class Controller {
         view.printMessage(String.valueOf(bouquet.countCost()));
 
         view.printOutput(Constants.STEM_LENGTH);
-        view.printMessage(String.valueOf(Constants.LOW), ";", String.valueOf(Constants.TOP));
+        view.printMessage("["+String.valueOf(Constants.LOW), ";", String.valueOf(Constants.TOP)+"]");
         view.printArray(bouquet.getByStemLength(Constants.LOW, Constants.TOP)); // 19, 22
     }
 
